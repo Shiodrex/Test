@@ -1,12 +1,12 @@
-public static void main(String[] args) {
+ public static void main(String[] args) {
         Lista L1 = new Lista(10);
-        //INSERTAR
+//        //INSERTAR
         L1.add(1);
         L1.add(2);
         L1.add(3);
         L1.add(4);
         L1.frecuencia();
-        //Frecuencia
+       
 
 //        L1.insertarLugarAsc(3);
 //        L1.insertarLugarAsc(1);
@@ -32,48 +32,38 @@ public static void main(String[] args) {
 //        L1.eliminarPares();
 
 //        L1.eliminarTodo(1);
-        System.out.println(L1);
+//        System.out.println(L1);
          
         //ARRAYLIST
         
 //         ArrayList<Integer> L1 = new ArrayList<>();
         
-//        // Pruebas
-//        L1.add(2);
-//        L1.add(2);
-//        L1.add(2);
+       // Pruebas
 //        L1.add(1);
-
+//        L1.add(2);
+//        L1.add(3);
+//        L1.add(4);
+//
 //        System.out.println(frecuencia(L1, 2));
 
-//        insertarLugarAsc(L1, 3);
-//        System.out.println(L1);
+////        insertarLugarAsc(L1, 3);
 
-//        insertarIesimo(L1, 5, 2);
-//        System.out.println(L1);
+////        insertarIesimo(L1, 5, 2);
 
-       
-//        System.out.println(L1);
+////        insertarPrim(L1, 2); 
 
-//        insertarUlt(L1, 10);
-//        System.out.println(L1);
+////        insertarUlt(L1, 10);
 
-//        eliminarIesimo(L1, 2);
-//        System.out.println(L1);
+////        eliminarIesimo(L1, 2);
 
-//        eliminarPrim(L1);
-//        System.out.println(L1);
+////        eliminarPrim(L1);
 
-//        eliminarUlt(L1);
-//        System.out.println(L1);
-//
-//        eliminarTodo(L1, 2);
-//        System.out.println(L1);
+////        eliminarUlt(L1);
 
-//        L1.add(7);
-//        L1.add(3);
-//        L1.add(1);
+////        eliminarTodo(L1, 2);
+
 //        eliminarPares(L1);
+//        
 //        System.out.println(L1);
     }
      public static int frecuencia(ArrayList<Integer> L1, int x) {

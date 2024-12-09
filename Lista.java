@@ -1,122 +1,151 @@
-package prueba.examen.pkgfinal;
-public class Lista {
-    private int max;
-    private int[] elem;
-    private int cantElem;
-     
-    public Lista(int max) {
-        this.max = max;
-        this.cantElem = 0;
-        this.elem = new int[max];
+public static void main(String[] args) {
+        Lista L1 = new Lista(10);
+//        //INSERTAR
+        L1.add(1);
+        L1.add(2);
+        L1.add(3);
+        L1.add(4);
+        L1.frecuencia();
+       
+
+//        L1.insertarLugarAsc(3);
+//        L1.insertarLugarAsc(1);
+//        L1.insertarLugarAsc(2);
+
+//        L1.insertarIesimo(0, 1);
+//        L1.insertarIesimo(1, 4);
+
+//        L1.insertarPrim(3);
+//        L1.insertarPrim(1);
+
+//        L1.insertarUlt(9);
+//        L1.insertarUlt(5);
+
+        //ELIMINAR
+//        L1.eliminarIesimo(5);
+//        L1.eliminarIesimo(2);
+
+//        L1.eliminarPrim();
+//
+//        L1.eliminarUlt();
+
+//        L1.eliminarPares();
+
+//        L1.eliminarTodo(1);
+//        System.out.println(L1);
+         
+        //ARRAYLIST
         
+//         ArrayList<Integer> L1 = new ArrayList<>();
+        
+       // Pruebas
+//        L1.add(1);
+//        L1.add(2);
+//        L1.add(3);
+//        L1.add(4);
+//
+//        System.out.println(frecuencia(L1, 2));
+
+////        insertarLugarAsc(L1, 3);
+
+////        insertarIesimo(L1, 5, 2);
+
+////        insertarPrim(L1, 2); 
+
+////        insertarUlt(L1, 10);
+
+////        eliminarIesimo(L1, 2);
+
+////        eliminarPrim(L1);
+
+////        eliminarUlt(L1);
+
+////        eliminarTodo(L1, 2);
+
+//        eliminarPares(L1);
+//        
+//        System.out.println(L1);
     }
-    public String toString() {
-        String s = "[";
-        for(int i = 0; i < this.cantElem; i++) {
-            s = s + this.elem[i];
-            if(i < this.cantElem - 1) {
-                s = s + ", ";
+     public static int frecuencia(ArrayList<Integer> L1, int x) {
+        int contador = 0;
+        for (int num : L1) {
+            if (num == x) {
+                contador++;
             }
         }
-        s = s + "]";
-        return s;
+        return contador;
     }
 
-    // Método para agregar un elemento
-    public void add(int x) {
-        if (cantElem < elem.length) {
-            elem[cantElem++] = x;
+    public static boolean insertarLugarAsc(ArrayList<Integer> L1, int x) {
+        int i = 0;
+        while (i < L1.size() && L1.get(i) < x) {
+            i++;
         }
+        L1.add(i, x);
+        return true;
     }
 
-    //INSERTAR ELEMENTOS A UNA LISTA
-    //1 
-    public void frecuencia() {
-        int t = elem[0], c = 1;
-        for (int i = 1; i < cantElem; i++) {
-            if (elem[i] == t) {
-                c++;
-            } else {
-                System.out.println(t + " tiene frecuencia " + c);
-                t = elem[i];
-                c = 1;
+    public static boolean insertarIesimo(ArrayList<Integer> L1, int x, int i) {
+        if (i < 0 || i > L1.size()) {
+            return false;
+        }
+        L1.add(i, x);
+        return true;
+    }
+
+    public static boolean insertarPrim(ArrayList<Integer> L1, int x) {
+        L1.add(0, x);
+        return true;
+    }
+
+    public static boolean insertarUlt(ArrayList<Integer> L1, int x) {
+        L1.add(x);
+        return true;
+    }
+
+    public static boolean eliminarIesimo(ArrayList<Integer> L1, int i) {
+        if (i < 0 || i >= L1.size()) {
+            return false;
+        }
+        L1.remove(i);
+        return true;
+    }
+
+    public static boolean eliminarPrim(ArrayList<Integer> L1) {
+        if (L1.isEmpty()) {
+            return false;
+        }
+        L1.remove(0);
+        return true;
+    }
+
+    public static boolean eliminarUlt(ArrayList<Integer> L1) {
+        if (L1.isEmpty()) {
+            return false;
+        }
+        L1.remove(L1.size() - 1);
+        return true;
+    }
+
+    public static boolean eliminarTodo(ArrayList<Integer> L1, int x) {
+        boolean eliminado = false;
+        while (L1.contains(x)) {
+            L1.remove((Integer) x);
+            eliminado = true;
+        }
+        return eliminado;
+    }
+
+    public static boolean eliminarPares(ArrayList<Integer> L1) {
+        boolean eliminado = false;
+        for (int i = 0; i < L1.size(); i++) {
+            if (L1.get(i) % 2 == 0) {
+                L1.remove(i);
+                i--; // Ajustar el índice tras eliminar
+                eliminado = true;
             }
         }
-        System.out.println(t + " tiene frecuencia " + c);
-    }
-    //2
-    public void insertarLugarAsc(int x) {
-        if(cantElem == max) {
-            return;
-        }
-        int i = cantElem - 1;
-        while(i >= 0 && elem[i] > x) {
-            elem[i + 1] = elem[i];
-            i--;
-        }
-        elem[i + 1] = x;
-        cantElem++;
-    }
-    //3
-    public void insertarIesimo(int x, int i) {
-        if(i < 0 || i > cantElem || cantElem >= max) {
-            return;
-        }
-        for(int j = cantElem; j > i; j--) {
-            this.elem[j] = this.elem[j - 1];
-        }
-        this.elem[i] = x;
-        this.cantElem++;
-    }
-    //4
-    public void insertarPrim(int x) {
-        insertarIesimo(x, 0);
-    }
-    //5
-    public void insertarUlt(int x) {
-        if(cantElem < max) {
-            this.elem[cantElem] = x;
-            this.cantElem++;
-        }
-    }
-//ELIMINAR ELEMENTOS DE UNA LISTA
-    //1 
-    public void eliminarIesimo(int i) {
-        if(i < 0 || i >= cantElem) {
-            return;
-        }
-        for(int j = i; j < cantElem - 1; j++) {
-            this.elem[j] = this.elem[j + 1];
-        }
-        cantElem--;
-    }
-    //2
-    public void eliminarPrim() {
-        eliminarIesimo(0);
-    }
-    //3
-    public void eliminarUlt() {
-        if(cantElem > 0) {
-            cantElem--;
-        }
-    }
-    //4
-    public void eliminarTodo(int x) {
-        for(int i = 0; i < cantElem; i++) {
-            if(elem[i] == x) {
-                eliminarIesimo(i);
-                i--;
-            }
-        }
-    }
-    //5
-    public void eliminarPares() {
-        for(int i = 0; i < cantElem; i++) {
-            if(elem[i] % 2 == 0) {
-                eliminarIesimo(i);
-                i--;
-            }
-        }
+        return eliminado;
     }
 }
      

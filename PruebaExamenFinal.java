@@ -1,4 +1,3 @@
-TEST TOTALsdasdsdadsad
 public static void main(String[] args) {
         Lista L1 = new Lista(10);
 //        //INSERTAR
